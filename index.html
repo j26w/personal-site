@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--#if expr="$HTTP_COOKIE=/fonts\-loaded\=true/" -->
-<html lang="en" class="fonts-loaded true-cookie">
-<!--#else -->
-<html lang="en" class="false-cookie">
-<!--#endif -->
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name=viewport content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -664,6 +660,15 @@ footer {
 
 </style>
 <!--END include sass and process into css-->
+<script>
+	// cookie script by filament group
+	function cookie(e,i,o){if(void 0===i){var t="; "+window.document.cookie,n=t.split("; "+e+"=");return 2===n.length?n.pop().split(";").shift():null}i===!1&&(o=-1);var r;if(o){var c=new Date;c.setTime(c.getTime()+24*o*60*60*1e3),r="; expires="+c.toGMTString()}else r="";window.document.cookie=e+"="+i+r+"; path=/"}
+ 	// set cookie so web fonts can be applied immediately
+	cookie( "fonts-loaded", true, 7 );
+	// check if cookie exists and if so go ahead and apply the fonts-loaded class to html. would be better to check for cookie with php or SSI expr
+	// and an use if/then to write alternative html tags, one with the class one without. this javascript option is for static sites like github-pages
+	if ( document.cookie.match(/^(.*;)?fonts-loaded=[^;]+(.*)?$/) ) {document.documentElement.className += ' fonts-loaded';}
+</script> 
 </head>
 <body>
 <div class="yd-page">
@@ -794,7 +799,6 @@ footer {
 		u.prototype.a=function(a){a=a||"BESbswy";var b="font-style:"+this.style+";font-variant:"+this.variant+";font-weight:"+this.weight+";font-stretch:"+this.stretch+";font-feature-settings:"+this.featureSettings+";-moz-font-feature-settings:"+this.featureSettings+";-webkit-font-feature-settings:"+this.featureSettings+";",c=document.createElement("div"),k=new e(a),l=new e(a),m=new e(a),f=-1,d=-1,g=-1,n=-1,p=-1,q=-1,h=this;r(k,"sans-serif",b);r(l,"serif",b);r(m,"monospace",b);c.appendChild(k.a);c.appendChild(l.a);
 		c.appendChild(m.a);document.body.appendChild(c);n=k.a.offsetWidth;p=l.a.offsetWidth;q=m.a.offsetWidth;return new Promise(function(a,y){function w(){null!==c.parentNode&&document.body.removeChild(c)}function x(){if(-1!==f&&-1!==d&&-1!==g&&f===d&&d===g){if(null===v){var b=/AppleWeb[kK]it\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent);v=!!b&&(536>parseInt(b[1],10)||536===parseInt(b[1],10)&&11>=parseInt(b[2],10))}v?f===n&&d===n&&g===n||f===p&&d===p&&g===p||f===q&&d===q&&g===q||(w(),a(h)):(w(),
 		a(h))}}setTimeout(function(){w();y(h)},3E3);t(k,function(a){f=a;x()});r(k,h.family+",sans-serif",b);t(l,function(a){d=a;x()});r(l,h.family+",serif",b);t(m,function(a){g=a;x()});r(m,h.family+",monospace",b)})};window.FontFaceObserver=u;window.FontFaceObserver.prototype.check=u.prototype.a;}());
-
 			/*
 			Fonts are loaded through @font-face rules in the CSS whenever an element references them.
 			FontFaceObserver creates a referencing element to trigger the font request, and lsisten for font load events.
@@ -824,11 +828,6 @@ footer {
 					w.document.documentElement.className += " fonts-loaded";
 				});
 		}( this ));
-
-		// cookie script by filament group
-		function cookie(e,i,o){if(void 0===i){var t="; "+window.document.cookie,n=t.split("; "+e+"=");return 2===n.length?n.pop().split(";").shift():null}i===!1&&(o=-1);var r;if(o){var c=new Date;c.setTime(c.getTime()+24*o*60*60*1e3),r="; expires="+c.toGMTString()}else r="";window.document.cookie=e+"="+i+r+"; path=/"}
-	 	// set cookie so web fonts can be applied immediately
-		cookie( "fonts-loaded", true, 7 );
 
 		// add .js class to html if javascript enabled
 		if ( 'querySelector' in document && 'addEventListener' in window ) {document.documentElement.className += ' js';}
