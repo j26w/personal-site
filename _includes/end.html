@@ -65,10 +65,6 @@
 				});
 		}( this ));
 
-		// cookie script by filament group
-		function cookie(e,i,o){if(void 0===i){var t="; "+window.document.cookie,n=t.split("; "+e+"=");return 2===n.length?n.pop().split(";").shift():null}i===!1&&(o=-1);var r;if(o){var c=new Date;c.setTime(c.getTime()+24*o*60*60*1e3),r="; expires="+c.toGMTString()}else r="";window.document.cookie=e+"="+i+r+"; path=/"}
-	 	// set cookie so web fonts can be applied immediately
-		cookie( "fonts-loaded", true, 7 );
 
 		// add .js class to html if javascript enabled
 		if ( 'querySelector' in document && 'addEventListener' in window ) {document.documentElement.className += ' js';}
